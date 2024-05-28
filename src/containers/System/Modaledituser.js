@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { emitter } from '../../utils/emitter';
 import { dateFilter } from 'react-bootstrap-table2-filter';
+import _ from 'lodash';
+
 class modaluser extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             email: '',
             password: '',
             firstName: '',
@@ -21,6 +24,7 @@ class modaluser extends Component {
     listentoEmitter() {
         emitter.on('EVENT_CLEAR_MODAL_DATA', () => {
             this.setState({
+                id: '',
                 email: '',
                 password: '',
                 firstName: '',
@@ -31,6 +35,19 @@ class modaluser extends Component {
     }
 
     componentDidMount() {
+        let user = this.props.currenedituser
+        if (user && !_.isEmpty(user)) {
+            this.setState({
+                id: user.id,
+                email: user.email,
+                password: 'harcode',
+                firstName: user.firstName,
+                lastName: user.lastName,
+                address: user.address
+
+            })
+        }
+        console.log('didmout edit modal', this.props.currenedituser)
     }
     toggle = () => {
         this.props.togglefromperent()
@@ -60,15 +77,16 @@ class modaluser extends Component {
         return idValid
     }
 
-    handleaddnewuser = () => {
+    handleSaveuser = () => {
         let isvalid = this.checkvalidate();
         if (isvalid === true) {
-            this.props.createnewuser(this.state)
+            this.props.Edituser(this.state)
         }
         //console.log('data modal: ', this.state)
     }
 
     render() {
+        console.log('check props from parent', this.props)
         return (
             <Modal isOpen={this.props.isOpen}
                 toggle={() => { this.toggle() }}
@@ -83,6 +101,7 @@ class modaluser extends Component {
                             <input type='text'
                                 onChange={(event) => { this.handleonchangeinput(event, 'email') }}
                                 value={this.state.email}
+                                disabled
                             />
                         </div>
                         <div className='input-container'>
@@ -90,6 +109,7 @@ class modaluser extends Component {
                             <input type='Password'
                                 onChange={(event) => { this.handleonchangeinput(event, 'password') }}
                                 value={this.state.password}
+                                disabled
                             />
                         </div>
                         <div className='input-container'>
@@ -117,8 +137,8 @@ class modaluser extends Component {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button className='px-3' color="primary" onClick={() => { this.handleaddnewuser() }}>
-                        Add new
+                    <Button className='px-3' color="primary" onClick={() => { this.handleSaveuser() }}>
+                        Save changer
                     </Button>{' '}
                     <Button className='px-3' color="secondary" onClick={() => { this.toggle() }}>
                         Close

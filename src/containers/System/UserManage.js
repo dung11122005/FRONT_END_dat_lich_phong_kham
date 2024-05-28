@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import "./UserManage.scss"
-import { getAllusers, createnewUserService } from "../../services/userservive"
+import { getAllusers, createnewUserService, deleteUserService, editUserService } from "../../services/userservive"
 import ModalUser from './ModalUser';
+import Modaledituser from './Modaledituser';
+import { emitter } from "../../utils/emitter"
+
 
 class UserManage extends Component {
 
@@ -11,7 +14,9 @@ class UserManage extends Component {
         super(props);
         this.state = {
             arrusers: [],
-            isOpenModaluser: false
+            isOpenModaluser: false,
+            isOpenModalEdituser: false,
+            userEdit: {}
         }
     }
 
@@ -38,7 +43,11 @@ class UserManage extends Component {
             isOpenModaluser: !this.state.isOpenModaluser
         })
     }
-
+    toggleuserEditmodel = () => {
+        this.setState({
+            isOpenModalEdituser: !this.state.isOpenModalEdituser
+        })
+    }
     createnewuser = async (data) => {
         try {
             let response = await createnewUserService(data)
@@ -49,12 +58,50 @@ class UserManage extends Component {
                 this.setState({
                     isOpenModaluser: false
                 })
+                emitter.emit('EVENT_CLEAR_MODAL_DATA', { 'id': 'your id' })
             }
             console.log('check response create new user: ', response)
         } catch (e) {
             console.log(e)
         }
-        console.log('data', data)
+        //console.log('data', data)
+    }
+
+
+    handledeleteuser = async (user) => {
+        try {
+            let res = await deleteUserService(user.id)
+            if (res && res.errcode === 0) {
+                await this.getAllUserformreact()
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    handlEdituser = (user) => {
+        this.setState({
+            isOpenModalEdituser: true,
+            userEdit: user
+        })
+    }
+
+
+    doEdituser = async (user) => {
+        let res = await editUserService(user)
+        try {
+            if (res && res.errcode === 0) {
+                this.setState({
+                    isOpenModalEdituser: false
+                })
+                await this.getAllUserformreact()
+            } else {
+                alert(res.errcode)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+        //console.log('click save user', user)
     }
     /**  life cycle
      * run component
@@ -74,6 +121,15 @@ class UserManage extends Component {
                     togglefromperent={this.toggleusermodel}
                     createnewuser={this.createnewuser}
                 />
+                {this.state.isOpenModalEdituser &&
+                    <Modaledituser
+                        isOpen={this.state.isOpenModalEdituser}
+                        togglefromperent={this.toggleuserEditmodel}
+                        currenedituser={this.state.userEdit}
+                        Edituser={this.doEdituser}
+                    />
+                }
+
                 <div className='title text-center'>
                     Manege users with Dung
                 </div>
@@ -101,8 +157,8 @@ class UserManage extends Component {
                                     <td>{item.lastName}</td>
                                     <td>{item.address}</td>
                                     <td>
-                                        <button className='btn-edit'><i className="fas fa-pencil-alt"></i></button>
-                                        <button className='btn-delete'><i className="fas fa-trash"></i></button>
+                                        <button className='btn-edit' onClick={() => { this.handlEdituser(item) }}><i className="fas fa-pencil-alt"></i></button>
+                                        <button className='btn-delete' onClick={() => { this.handledeleteuser(item) }}><i className="fas fa-trash"></i></button>
                                     </td>
                                 </tr>)
                             })}
