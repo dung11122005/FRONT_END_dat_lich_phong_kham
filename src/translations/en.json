@@ -1,4 +1,23 @@
 {
+    "homehader": {
+        "speciality": "Specialist",
+        "SearchDoctors": "Search Doctors by Specialty",
+        "Health_facilities": "Health facilities",
+        "Choose_Hospital": "Choose Hospital and Clinic",
+        "Doctor": "Doctor",
+        "Good_Doctor": "Choose a Good Doctor",
+        "Examination_Package": "Examination Package",
+        "health_check": "General health check",
+        "Support": "Support",
+        "Medical_Background": "MEDICAL FOUNDATION",
+        "Health_Care": "COMPREHENSIVE HEALTH CARE",
+        "Specialist_Examination": "Specialized Examination",
+        "remote_examination": "Remote Examination",
+        "General_Examination": "General Examination",
+        "Medical_Tests": "Medical Tests",
+        "Mental_health": "Mental health",
+        "Dental Examination": "Dental Examination"
+    },
     "common": {
         "add": "Add",
         "edit": "Edit",

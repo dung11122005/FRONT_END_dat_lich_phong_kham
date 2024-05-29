@@ -1,4 +1,23 @@
 {
+    "homehader": {
+        "speciality": "Chuyên Khoa",
+        "SearchDoctors": "Tìm Bác Sĩ theo Chuyên Khoa",
+        "Health_facilities": "Cơ Sở Y tế",
+        "Choose_Hospital": "Chọn Bệnh Viện Phòng Khám",
+        "Doctor": "Bác Sĩ",
+        "Good_Doctor": "Chọn Bác Sĩ Giỏi",
+        "Examination_Package": "Gói Khám",
+        "health_check": "Khám Sức Khỏe Tổng Quát",
+        "Support": "Hỗ Trợ",
+        "Medical_Background": "NỀN TẢNG Y TẾ",
+        "Health_Care": "CHĂM SÓC SỨC KHỎE TOÀN DIỆN",
+        "Specialist_Examination": "Khám Chuyên Khoa",
+        "remote_examination": "Khám Từ xa",
+        "General_Examination": "Khám Tổng Quát",
+        "Medical_Tests": "Xét Nghiệm Y học",
+        "Mental_health": "Sức Khỏe Tinh Thần",
+        "Dental Examination": "Khám Nha Khoa"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",
