@@ -3,6 +3,10 @@
     //border: 1px solid red;
     width: 100%;
     padding: 0 50px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
     .home-header-content{
         height: 100%;
         width: 100%;

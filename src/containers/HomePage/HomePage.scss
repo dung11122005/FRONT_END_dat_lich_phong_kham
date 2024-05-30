@@ -1,0 +1,167 @@
+.slick-next {
+    border: 1px solid #606266 !important;
+    z-index: 100 !important;
+    right: -10px !important;
+    height: 50px !important;
+    width: 50px !important;
+    background: rgb(255, 255, 255) !important;
+    opacity: 0.5;
+    border-radius: 50%;
+    &:hover{
+        background: #E4E6E9 !important;
+    }
+}
+.slick-prev {
+    z-index: 100 !important;
+    border: 1px solid #606266 !important;
+    left: -10px !important;
+    height: 50px !important;
+    width: 50px !important;
+    background-color: rgb(255, 255, 255) !important;
+    opacity: 0.5;
+    border-radius: 50%;
+    &:hover{
+        background: #E4E6E9 !important;
+    }
+}
+.slick-prev:before, .slick-next:before{
+    font-family: "Font Awesome 5 Free" !important;
+    color: rgb(0, 0, 0) !important;
+    //content: "\e257" !important;
+}
+
+.section-share{
+    &.section-specialty{
+        background: #FFFFFF;
+    }
+    &.section-medical-facility{
+        background: #F0F2F5;
+    }
+    &.section-outstanding-doctor{
+        background: #FFFFFF;
+    }
+    &.section-handbook{
+        background: #F0F2F5;
+    }
+    &.section-about{
+        //border: 1px solid red;
+        height: 500px;
+        margin: 0 100px;
+        .section-about-header {
+            padding: 20px 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .section-about-content{
+            display: flex;
+            gap: 50px;
+            .content-left{
+                width: 60%;
+            }
+            .content-rigth{
+                width: 40%;
+                p{
+                    text-align: center;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+    .section-body{
+        //border: 1px solid rgb(0, 0, 0);
+        //reset slick slider css
+        .section-customize{
+            //border: 1px solid rgb(0, 0, 0);
+            .customize-border {
+                border: 1px solid #606266;
+                margin: 15px;
+                border-radius: 10px;
+                padding: 10px;
+            }
+            
+            .outter-bg{
+                display: flex;
+                justify-content: center;
+                padding-bottom: 10px;
+            }
+            
+            .bg-image{
+                height: 200px;
+                width: 300px;
+                border-radius: 10px;
+                background-position: center center;
+                background-size: cover;
+                background: no-repeat;
+                background-color: #E4E6E9;
+                &.section-specialty{
+                    background-image: url('../../assets/specialty/khoaxuongkhop.jpg');
+                }
+                &.section-medical-facility{
+                    background-image: url('../../assets/specialty/benhvien.jpg');
+                }
+                &.section-outstanding-doctor{
+                    background-image: url('../../assets/specialty/bacsi.jpg');
+                    height: 150px ;
+                    width: 150px ;
+                    background-size: 150px;
+                    border-radius: 50% ;
+                }
+                &.section-handbook{
+                    background-image: url('../../assets/specialty/camnang.jpg');
+                }
+            }
+            
+        }
+        
+    }
+}
+
+.section-share{
+    height: 360px; 
+    //border: 1px solid red;
+
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header{
+            height: 55px;
+            margin-left: 25px;
+            margin-right: 30px;
+            //border: 1px solid green;
+            padding-top: 20px;
+            margin-bottom: 20px;
+            .title-section{
+                font-size: 20px;
+                font-weight: 600;
+            }
+            .btn-section{
+                float: right;
+                color: black;
+                border: none;
+                border-radius: 10px;
+                outline: none;
+                display: block;
+                padding: 10px 15px;
+                background: #D8DADF;
+                cursor: pointer;
+                margin-top: -3px;
+                &:hover{
+                    color: white;
+                    background: #FFC419;
+                }
+            }
+        }
+
+    }
+
+}
+
+.home-footer{
+    text-align: center;
+    padding-top: 10px;
+    a{
+        text-decoration: unset;
+    }
+}
