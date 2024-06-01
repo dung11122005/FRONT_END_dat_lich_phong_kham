@@ -24,6 +24,9 @@
 
 
 .languages{
+    .welcome{
+
+    }
     .language-en{
         margin-right: 15px;
         margin-left: 10px;
@@ -35,11 +38,12 @@
         }
     }
     .language-vi{
+        margin-left: 10px;
         cursor: pointer;
         opacity: 0.2;
         &.active{
             opacity: 1;
-            color: rgb(255, 94, 0);
+            color: rgb(255, 208, 0);
         }
     }
 }
