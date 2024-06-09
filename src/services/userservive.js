@@ -39,4 +39,8 @@ const getAllcodeservice = (inputdata) => {
 
 
 
-export { handleloginapi, getAllusers, createnewUserService, deleteUserService, editUserService, getAllcodeservice }
+export {
+    handleloginapi, getAllusers,
+    createnewUserService, deleteUserService,
+    editUserService, getAllcodeservice
+}

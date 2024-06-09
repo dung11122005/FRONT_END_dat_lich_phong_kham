@@ -1,10 +1,9 @@
 import actionTypes from './actionTypes';
-import { getAllcodeservice, createnewUserService } from '../../services/userservive'
-
+import { getAllcodeservice, createnewUserService, getAllusers, deleteUserService } from '../../services/userservive'
+import { toast } from "react-toastify";
 // export const fetchGenderStart = () => ({
 //     type: actionTypes.FETCH_GENDER_START
 // })
-
 
 export const fetchGenderStart = () => {
     return async (dispatch, getState) => {
@@ -22,7 +21,6 @@ export const fetchGenderStart = () => {
             console.log('fetchGenderStart error', e)
         }
     }
-
 }
 export const fetchGenderSucsess = (genderdata) => ({
     type: actionTypes.FETCH_GENDER_SUCSESS,
@@ -91,14 +89,17 @@ export const fetchRoleFailed = () => ({
 
 
 
+
 export const createNewuser = (data) => {
     return async (dispatch, getState) => {
         try {
             let res = await createnewUserService(data)
-            console.log('hoidanit check create user redux: ', res)
+            //console.log('hoidanit check create user redux: ', res)
             if (res && res.errcode === 0) {
                 //sconsole.log('hoi dan it check get state:', getState)
-                dispatch(saveUserSuccess(res.data))
+                toast.success("CREATE A NEW USER SUCCESS!");
+                dispatch(saveUserSuccess())
+                dispatch(fetchAllUsersStart())
             } else {
                 dispatch(saveUserFailed())
             }
@@ -109,9 +110,8 @@ export const createNewuser = (data) => {
     }
 
 }
-export const saveUserSuccess = (roledata) => ({
+export const saveUserSuccess = () => ({
     type: actionTypes.CREATE_USER_SUCSESS,
-    data: roledata
 })
 export const saveUserFailed = () => ({
     type: actionTypes.CREATE_USER_FAILED
@@ -120,3 +120,60 @@ export const saveUserFailed = () => ({
 
 
 
+export const fetchAllUsersStart = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await getAllusers('ALL')
+            console.log('hoidanit check create user redux: ', res)
+            if (res && res.errcode === 0) {
+                //sconsole.log('hoi dan it check get state:', getState)
+                toast.success("FETCH ALL USER SUCCESS!");
+                dispatch(fetchAllUsersSucsess(res.users.reverse()))
+            } else {
+                toast.error("FETCH ALL USER ERROR!");
+                dispatch(fetchAllUsersFailed())
+            }
+        } catch (e) {
+            dispatch(fetchAllUsersFailed())
+            console.log('fetchAllUsersFailed error', e)
+        }
+    }
+}
+export const fetchAllUsersSucsess = (data) => ({
+    type: actionTypes.FETCH_ALL_USERS_SUCSESS,
+    users: data
+})
+export const fetchAllUsersFailed = () => ({
+    type: actionTypes.FETCH_ALL_USERS_FAILED
+})
+
+
+
+
+export const deleteAUser = (userId) => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await deleteUserService(userId)
+            //console.log('hoidanit check create user redux: ', res)
+            if (res && res.errcode === 0) {
+                //sconsole.log('hoi dan it check get state:', getState)
+                toast.success("DELETE THE USER SUCCESS!");
+                dispatch(deleteUserSuccess())
+                dispatch(fetchAllUsersStart())
+            } else {
+                toast.error("DELETE THE USER ERROR!");
+                dispatch(deleteUserFailed())
+            }
+        } catch (e) {
+            dispatch(deleteUserFailed())
+            console.log('deleteUserFailed error', e)
+        }
+    }
+
+}
+export const deleteUserSuccess = () => ({
+    type: actionTypes.DELETE_USER_SUCSESS,
+})
+export const deleteUserFailed = () => ({
+    type: actionTypes.DELETE_USER_FAILED
+})
