@@ -11,13 +11,13 @@ const getAllusers = (inputId) => {
 
 
 const createnewUserService = (data) => {
-    console.log('check data', data)
+    //console.log('check data', data)
     return axios.post('/api/create-new-user', data)
 }
 
 
 const deleteUserService = (userid) => {
-    console.log('check data', userid)
+    //console.log('check data', userid)
     return axios.delete('/api/delete-user', {
         data: {
             id: userid
@@ -27,7 +27,7 @@ const deleteUserService = (userid) => {
 
 
 const editUserService = (inputdata) => {
-    console.log('check data', inputdata)
+    //console.log('check data', inputdata)
     return axios.put('/api/edit-user', inputdata)
 }
 
