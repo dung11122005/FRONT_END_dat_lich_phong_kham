@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { getAllcodeservice } from '../../../services/userservive'
-import { LANGUAGES, CRUD_ACTIONS } from '../../../utils'
+import { LANGUAGES, CRUD_ACTIONS, CommonUtils } from '../../../utils'
 import * as actions from '../../../store/actions'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
@@ -103,14 +103,16 @@ class UserRedux extends Component {
     }
 
 
-    handleonChangeImage = (event) => {
+    handleonChangeImage = async (event) => {
         let data = event.target.files
         let file = data[0]
         if (file) {
+            let base64 = await CommonUtils.getBase64(file)
+            //console.log('hoi dan it base64 image: ', base64)
             let objectUrl = URL.createObjectURL(file)
             this.setState({
                 previewImgURL: objectUrl,
-                avatar: file
+                avatar: base64
             })
         }
         //console.log('hoidan it check file 0: ', objectUrl)
@@ -125,9 +127,9 @@ class UserRedux extends Component {
 
 
     handelSaveUser = () => {
+        //console.log('hoi dan it before submit check state:', this.state)
         let isValid = this.checkValidateInput()
         if (isValid === false) return
-        //console.log('hoi dan it before submit check state:', this.state)
         let { action } = this.state
         if (action === CRUD_ACTIONS.CREATE) {
             this.props.createNewuser({
@@ -139,7 +141,8 @@ class UserRedux extends Component {
                 phonenumber: this.state.phoneNumber,
                 gender: this.state.gender,
                 roleId: this.state.role,
-                positionId: this.state.position
+                positionId: this.state.position,
+                avatar: this.state.avatar
             })
         }
         if (action === CRUD_ACTIONS.EDIT) {
@@ -153,10 +156,10 @@ class UserRedux extends Component {
                 phonenumber: this.state.phoneNumber,
                 gender: this.state.gender,
                 roleId: this.state.role,
-                positionId: this.state.position
+                positionId: this.state.position,
+                avatar: this.state.avatar
             })
         }
-
     }
 
 
@@ -164,7 +167,7 @@ class UserRedux extends Component {
         let isValid = true
         let arrcheck = ['email',
             'password', 'firstName', 'lastName', 'phoneNumber',
-            'address', 'gender', 'position', 'role']
+            'address']
 
         for (let i = 0; i < arrcheck.length; i++) {
             if (!this.state[arrcheck[i]]) {
@@ -187,7 +190,11 @@ class UserRedux extends Component {
     }
 
     handleEditUserFromParent = (user) => {
-        console.log('hoidan it check handle edit user from parent: ', user)
+        //console.log('hoidan it check handle edit user from parent: ', user)
+        let imageBase64 = ''
+        if (user.image) {
+            imageBase64 = new Buffer(user.image, 'base64').toString('binary')
+        }
         this.setState({
             email: user.email,
             password: 'HARDCODE',
@@ -199,6 +206,7 @@ class UserRedux extends Component {
             position: user.position,
             role: user.role,
             avatar: '',
+            previewImgURL: imageBase64,
             action: CRUD_ACTIONS.EDIT,
             useredtiId: user.id
         })
@@ -213,7 +221,7 @@ class UserRedux extends Component {
         let isGetGender = this.props.isLoadingGender
         let { email,
             password, firstName, lastName, phoneNumber,
-            address, gender, position, role, avatar
+            address, gender, position, role
         } = this.state
         //console.log('hoidan it check state component: ', this.state)
         return (
