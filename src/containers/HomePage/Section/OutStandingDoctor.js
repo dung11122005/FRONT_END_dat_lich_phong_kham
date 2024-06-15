@@ -36,7 +36,7 @@ class OutStandingDoctor extends Component {
             <div className='section-share section-outstanding-doctor'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'><FormattedMessage id="homepage.out-standing-doctor" /></span>
+                        <span className='title-section'><FormattedMessage id="homepage.outstanding-doctor" /></span>
                         <button className='btn-section'><FormattedMessage id="homepage.more-infor" /></button>
                     </div>
                     <div className='section-body position text-center'>
