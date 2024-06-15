@@ -48,5 +48,9 @@
         "image": "Ảnh đại diện",
         "save": "Lưu user",
         "edit": "Lưu thay đổi"
+    },
+    "homepage": {
+        "out-standing-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
+        "more-infor": "Xem Thêm"
     }
 }

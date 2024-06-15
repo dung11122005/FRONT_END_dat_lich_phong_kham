@@ -48,5 +48,9 @@
         "image": "Image",
         "save": "Save user",
         "edit": "Edit user"
+    },
+    "homepage": {
+        "out-standing-doctor": "Featured Doctors Last Week",
+        "more-infor": "See more"
     }
 }

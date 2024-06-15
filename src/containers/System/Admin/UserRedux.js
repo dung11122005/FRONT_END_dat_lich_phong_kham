@@ -65,21 +65,21 @@ class UserRedux extends Component {
             let arrgenders = this.props.genderRedux
             this.setState({
                 genderArr: arrgenders,
-                gender: arrgenders && arrgenders.length > 0 ? arrgenders[0].key : ''
+                gender: arrgenders && arrgenders.length > 0 ? arrgenders[0].keyMap : ''
             })
         }
         if (prevProps.positionRedux !== this.props.positionRedux) {
             let arrpositions = this.props.positionRedux
             this.setState({
                 positionArr: arrpositions,
-                position: arrpositions && arrpositions.length > 0 ? arrpositions[0].key : ''
+                position: arrpositions && arrpositions.length > 0 ? arrpositions[0].keyMap : ''
             })
         }
         if (prevProps.roleRedux !== this.props.roleRedux) {
             let arrroles = this.props.roleRedux
             this.setState({
                 roleArr: arrroles,
-                role: arrroles && arrroles.length > 0 ? arrroles[0].key : ''
+                role: arrroles && arrroles.length > 0 ? arrroles[0].keyMap : ''
             })
         }
         if (prevProps.listUsers !== this.props.listUsers) {
@@ -93,10 +93,11 @@ class UserRedux extends Component {
                 lastName: '',
                 phoneNumber: '',
                 address: '',
-                gender: arrgenders && arrgenders.length > 0 ? arrgenders[0].key : '',
-                position: arrpositions && arrpositions.length > 0 ? arrpositions[0].key : '',
-                role: arrroles && arrroles.length > 0 ? arrroles[0].key : '',
+                gender: arrgenders && arrgenders.length > 0 ? arrgenders[0].keyMap : '',
+                position: arrpositions && arrpositions.length > 0 ? arrpositions[0].keyMap : '',
+                role: arrroles && arrroles.length > 0 ? arrroles[0].keyMap : '',
                 avatar: '',
+                previewImgURL: '',
                 action: CRUD_ACTIONS.CREATE,
             })
         }
@@ -142,7 +143,7 @@ class UserRedux extends Component {
                 gender: this.state.gender,
                 roleId: this.state.role,
                 positionId: this.state.position,
-                avatar: this.state.avatar
+                avatar: this.state.avatar,
             })
         }
         if (action === CRUD_ACTIONS.EDIT) {
@@ -203,8 +204,8 @@ class UserRedux extends Component {
             phoneNumber: user.phonenumber,
             address: user.address,
             gender: user.gender,
-            position: user.position,
-            role: user.role,
+            position: user.positionId,
+            role: user.roleId,
             avatar: '',
             previewImgURL: imageBase64,
             action: CRUD_ACTIONS.EDIT,
@@ -281,13 +282,13 @@ class UserRedux extends Component {
                             <div className='col-3'>
                                 <lable><FormattedMessage id='manage-user.gender' /></lable>
                                 <select className="form-control"
-                                    onChange={(event) => { this.onChangeInput(event, 'gender') }}
                                     value={gender}
+                                    onChange={(event) => { this.onChangeInput(event, 'gender') }}
                                 >
                                     {genders && genders.length > 0 &&
                                         genders.map((item, index) => {
                                             return (
-                                                <option key={index} value={item.key}>
+                                                <option key={index} value={item.keyMap}>
                                                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>)
                                         })
@@ -297,13 +298,13 @@ class UserRedux extends Component {
                             <div className='col-3'>
                                 <lable><FormattedMessage id='manage-user.position' /></lable>
                                 <select className="form-control"
-                                    onChange={(event) => { this.onChangeInput(event, 'position') }}
                                     value={position}
+                                    onChange={(event) => { this.onChangeInput(event, 'position') }}
                                 >
                                     {positions && positions.length > 0 &&
                                         positions.map((item, index) => {
                                             return (
-                                                <option key={index} value={item.key}>
+                                                <option key={index} value={item.keyMap}>
                                                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>)
                                         })
@@ -313,13 +314,13 @@ class UserRedux extends Component {
                             <div className='col-3'>
                                 <lable><FormattedMessage id='manage-user.role' /></lable>
                                 <select className="form-control"
-                                    onChange={(event) => { this.onChangeInput(event, 'role') }}
                                     value={role}
+                                    onChange={(event) => { this.onChangeInput(event, 'role') }}
                                 >
                                     {roles && roles.length > 0 &&
                                         roles.map((item, index) => {
                                             return (
-                                                <option key={index} value={item.key}>
+                                                <option key={index} value={item.keyMap}>
                                                     {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
                                                 </option>)
                                         })
