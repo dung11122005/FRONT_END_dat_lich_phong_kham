@@ -19,7 +19,7 @@ class HomeHeader extends Component {
 
         let language = this.props.language
         //console.log('check language', language)
-        console.log('check userinfo: ', this.props.userInfo)
+        //console.log('check userinfo: ', this.props.userInfo)
         return (
             <React.Fragment>
                 <div className='home-header-container'>
@@ -53,43 +53,45 @@ class HomeHeader extends Component {
                         </div>
                     </div>
                 </div>
-                <div className='home-header-bander'>
-                    <div className='content-up'>
-                        <div className='title1'><FormattedMessage id='homehader.Medical_Background' /></div>
-                        <div className='title2'><FormattedMessage id='homehader.Health_Care' /></div>
-                        <div className='search'>
-                            <i className="fas fa-search"></i>
-                            <input type='text' placeholder='Tìm Chuyên Khoa Khám Bệnh' /></div>
-                    </div>
-                    <div className='content-down'>
-                        <div className='option'>
-                            <div className='option-child'>
-                                <div className='icon-child'><i className="far fa-hospital"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.Specialist_Examination' /></div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.remote_examination' /></div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'><i class="fas fa-procedures"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.General_Examination' /></div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'><i class="fas fa-vial"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.Medical_Tests' /></div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'><i className="fas fa-user-md"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.Mental_health' /></div>
-                            </div>
-                            <div className='option-child'>
-                                <div className='icon-child'><i class="fas fa-briefcase-medical"></i></div>
-                                <div className='text-child'><FormattedMessage id='homehader.Dental Examination' /></div>
+                {this.props.isShowBanner === true &&
+                    <div className='home-header-bander'>
+                        <div className='content-up'>
+                            <div className='title1'><FormattedMessage id='homehader.Medical_Background' /></div>
+                            <div className='title2'><FormattedMessage id='homehader.Health_Care' /></div>
+                            <div className='search'>
+                                <i className="fas fa-search"></i>
+                                <input type='text' placeholder='Tìm Chuyên Khoa Khám Bệnh' /></div>
+                        </div>
+                        <div className='content-down'>
+                            <div className='option'>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i className="far fa-hospital"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.Specialist_Examination' /></div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.remote_examination' /></div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i class="fas fa-procedures"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.General_Examination' /></div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i class="fas fa-vial"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.Medical_Tests' /></div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i className="fas fa-user-md"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.Mental_health' /></div>
+                                </div>
+                                <div className='option-child'>
+                                    <div className='icon-child'><i class="fas fa-briefcase-medical"></i></div>
+                                    <div className='text-child'><FormattedMessage id='homehader.Dental Examination' /></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
             </React.Fragment>
 
         );

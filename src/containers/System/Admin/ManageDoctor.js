@@ -9,7 +9,6 @@ import MdEditor from 'react-markdown-editor-lite';
 // import style manually
 import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
-
 // Register plugins if required
 // MdEditor.use(YOUR_PLUGINS_HERE);
 // Initialize a markdown parser
@@ -104,7 +103,7 @@ class ManageDoctor extends Component {
 
             <div className='manage-doctor-container'>
                 <div className='manage-doctor-title'>
-                    <div>Tọa thêm thông tin bác sĩ</div>
+                    <div>Tạo thêm thông tin bác sĩ</div>
                 </div>
                 <div className='more-infor'>
                     <div className='content-left form-group'>
