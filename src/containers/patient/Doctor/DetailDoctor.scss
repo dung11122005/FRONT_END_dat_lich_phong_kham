@@ -1,12 +1,13 @@
 .docter-detail-container{
     height: 500px;
-    border: 1px red solid;
-    margin: 0 100px;
+    //border: 1px red solid;
+    
     .intro-doctor{
+        margin: 0 100px;
         display: flex;
-        border: 1px solid orange;
+        //border: 1px solid orange;
         .content-left{
-            border: 1px solid greenyellow;
+            //border: 1px solid greenyellow;
             background: center no-repeat;
             width: 120px;
             height: 120px;
@@ -28,5 +29,22 @@
                 padding-top: 10px;
             }
         }
+    }
+
+    .detail-infor-doctor{
+        background-color: #F9F9F9;
+        padding: 20px 100px;
+        border-top: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        h5{
+            font-size: 17px;
+        }
+        img{
+            width: 100%;
+        }
+    }
+
+    .commen-doctor{
+        height: 50px;
     }
 }
