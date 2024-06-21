@@ -61,6 +61,14 @@ class Login extends Component {
             isshowpassword: !this.state.isshowpassword
         })
     }
+
+
+    handleKeyDown = (event) => {
+        console.log('hoi dan it channel check keydown', event)
+        if (event.key === "Enter" || event.keyCode === 13) {
+            this.handlelogin()
+        }
+    }
     render() {
         return (
             <div className='login-background'>
@@ -77,8 +85,12 @@ class Login extends Component {
                         <div className='col-12 form-group login-input'>
                             <label>Password:</label>
                             <div className='custom-input-password'>
-                                <input type={this.state.isshowpassword ? 'text' : 'password'} className='form-control' placeholder='Enter your password'
+                                <input
+                                    type={this.state.isshowpassword ? 'text' : 'password'}
+                                    className='form-control'
+                                    placeholder='Enter your password'
                                     onChange={(event) => { this.handleonchagepassword(event) }}
+                                    onKeyDown={(event) => this.handleKeyDown(event)}
                                 />
                                 <span onClick={() => { this.handleshowhidepassword() }}>
                                     <i className={this.state.isshowpassword ? 'far fa-eye' : 'far fa-eye-slash'}></i>

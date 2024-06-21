@@ -118,6 +118,8 @@ class ManageDoctor extends Component {
             description: event.target.value
         })
     }
+
+
     render() {
         //console.log('hoi dan it channer:', this.state)
         let { hasOldData } = this.state

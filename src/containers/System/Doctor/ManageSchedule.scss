@@ -1,0 +1,31 @@
+.menage-schedule-container{
+    .m-s-title{
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 17px;
+    }
+
+
+    .pick-hour-container{
+        //border: 1px solid red;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        button{
+            border: 1px solid #999999;
+            padding: 5px 15px;
+        }
+    }
+
+
+    .btn-save-schedule{
+        margin-top: 20px;
+    }
+    
+}
