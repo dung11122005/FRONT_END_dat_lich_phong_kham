@@ -31,6 +31,19 @@
         }
     }
 
+    .schedule-doctor{
+        margin: 0 100px;
+        display: flex;
+        height: 200px;
+        border: 1px solid red;
+        .content-left{
+            width: 50%;
+        }
+        .content-rigth{
+            width: 50%;
+        }
+    }
+
     .detail-infor-doctor{
         background-color: #F9F9F9;
         padding: 20px 100px;

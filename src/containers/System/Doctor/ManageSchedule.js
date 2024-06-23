@@ -9,7 +9,7 @@ import DatePicker from '../../../components/Input/DatePicker'
 import moment from 'moment';
 import { toast } from "react-toastify";
 import { isEmpty } from 'lodash';
-
+import { savebulkScheduleDoctor } from '../../../services/userservive'
 
 
 
@@ -102,7 +102,7 @@ class ManageSchedule extends Component {
         }
     }
 
-    handleSaveSchedule = () => {
+    handleSaveSchedule = async () => {
         let { rangeTime, currenDate, selectedDoctor } = this.state
         let result = []
         if (!currenDate) {
@@ -113,8 +113,10 @@ class ManageSchedule extends Component {
             toast.error("invalid selected doctor!");
             return
         }
-        let formatDate = moment(currenDate).format('DD/MM/YYYY')
-        console.log('hoi dan it check state currenDate:', moment(currenDate).format(dateFormat.SEND_TO_SERVER))
+        //let formatDate = moment(currenDate).format('DD/MM/YYYY')
+        let formatedDate = new Date(currenDate).getTime()
+        //console.log(formatedDate)
+        //console.log('hoi dan it check state currenDate:', moment(currenDate).format(dateFormat.SEND_TO_SERVER))
         if (rangeTime && rangeTime.length > 0) {
             let selectedTime = rangeTime.filter(item => item.isSelected === true)
             if (selectedTime && selectedTime.length > 0) {
@@ -122,8 +124,8 @@ class ManageSchedule extends Component {
                     //console.log('check schedule:', schedule, index)
                     let object = {}
                     object.doctorId = selectedDoctor.value
-                    object.date = formatDate
-                    object.time = schedule.keyMap
+                    object.date = formatedDate
+                    object.timeType = schedule.keyMap
                     result.push(object)
                 })
 
@@ -133,7 +135,15 @@ class ManageSchedule extends Component {
             }
             //console.log('hoi dan it channel : selectedTime', selectedTime)
         }
-        console.log(this.state)
+
+        let res = await savebulkScheduleDoctor({
+            arrSchedule: result,
+            doctorId: selectedDoctor.value,
+            formatedDate: formatedDate
+
+        })
+        //console.log(this.state)
+        console.log('hoi dan it check res: savebulkScheduleDoctor:', res)
         console.log('hoi dan it channel check result:', result)
     }
 
