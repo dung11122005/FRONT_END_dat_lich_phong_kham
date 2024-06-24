@@ -1,0 +1,50 @@
+.doctor-schedule-container{
+    border-right: 1px solid rgb(38, 255, 0);
+    height: 100%;
+
+    .all-schedule{
+        select {
+            word-wrap: normal;
+            outline: none;
+            padding: 5px;
+            border-bottom: 1px solid #999999;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: #337AB7;
+            font-weight: 600;
+        }
+    }
+
+    .all-available-time{
+        .text-calandar{
+            color: #333;
+            margin: 10px 0;
+            span{
+                text-transform: uppercase;
+                margin-left: 5px;
+            }
+        }
+
+        .time-content{
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            button{
+                padding: 8px 10px;
+                border: none;
+                outline: none;
+                min-width: 130px;
+                border-radius: 5px;
+                background-color: #ffce3a;
+                font-weight: 600;
+                color: #333;
+
+                &:hover{
+                    background-color: #4fdded;
+                    color: white;
+                }
+            }
+        }
+    }
+}
