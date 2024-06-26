@@ -29,7 +29,7 @@ class DetailDoctor extends Component {
                     detailDoctor: res.data
                 })
             }
-            console.log('hoi dan IT channel res:', res)
+            //console.log('hoi dan IT channel res:', res)
         }
     }
 

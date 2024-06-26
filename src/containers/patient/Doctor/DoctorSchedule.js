@@ -26,7 +26,7 @@ class DoctorSchedule extends Component {
         this.setState({
             allDays: allDays,
         })
-        console.log('allDays:', allDays)
+        //console.log('allDays:', allDays)
     }
 
     capitalizeFirstLetter(string) {

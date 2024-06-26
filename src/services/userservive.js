@@ -67,11 +67,17 @@ const getScheduleDoctorByDate = (doctorId, date) => {
     //console.log('check input inputId', inputId)
     return axios.get(`/api/get-schedule-doctor-by-date?doctorId=${doctorId}&date=${date}`)
 }
+
+const getExtraInforDoctorById = (doctorId) => {
+    //console.log('check input inputId', inputId)
+    return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`)
+}
 export {
     handleloginapi, getAllusers,
     createnewUserService, deleteUserService,
     editUserService, getAllcodeservice,
     getTopDoctorHomeService, getAllDoctor,
     saveDetailDoctorService, getDetailInforDoctor,
-    savebulkScheduleDoctor, getScheduleDoctorByDate
+    savebulkScheduleDoctor, getScheduleDoctorByDate,
+    getExtraInforDoctorById
 }
