@@ -5,7 +5,7 @@ import './DetailDoctor.scss'
 import { getDetailInforDoctor } from '../../../services/userservive'
 import { LANGUAGES } from '../../../utils'
 import DoctorSchedule from './DoctorSchedule';
-
+import DoctorExtraInfor from './DoctorExtraInfor'
 
 class DetailDoctor extends Component {
 
@@ -60,7 +60,6 @@ class DetailDoctor extends Component {
                             style={{ backgroundImage: `url(${detailDoctor && detailDoctor.image ? detailDoctor.image : ''})` }}
 
                         >
-
                         </div>
                         <div className='content-rigth'>
                             <div className='up'>
@@ -82,7 +81,9 @@ class DetailDoctor extends Component {
                             />
                         </div>
                         <div className='content-rigth'>
-
+                            <DoctorExtraInfor
+                                doctorIdFromParent={this.state.currentDoctorId}
+                            />
                         </div>
                     </div>
                     <div className='detail-infor-doctor'>
