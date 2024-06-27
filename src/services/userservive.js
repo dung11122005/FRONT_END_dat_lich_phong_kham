@@ -72,6 +72,13 @@ const getExtraInforDoctorById = (doctorId) => {
     //console.log('check input inputId', inputId)
     return axios.get(`/api/get-extra-infor-doctor-by-id?doctorId=${doctorId}`)
 }
+
+const getProfileDoctorById = (doctorId) => {
+    //console.log('check input inputId', inputId)
+    return axios.get(`/api/get-pro-file-doctor-by-id?doctorId=${doctorId}`)
+}
+
+
 export {
     handleloginapi, getAllusers,
     createnewUserService, deleteUserService,
@@ -79,5 +86,5 @@ export {
     getTopDoctorHomeService, getAllDoctor,
     saveDetailDoctorService, getDetailInforDoctor,
     savebulkScheduleDoctor, getScheduleDoctorByDate,
-    getExtraInforDoctorById
+    getExtraInforDoctorById, getProfileDoctorById
 }
