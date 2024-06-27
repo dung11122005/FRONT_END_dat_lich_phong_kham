@@ -156,6 +156,7 @@ class ManageDoctor extends Component {
     handleChangeSelect = async (selectedOption) => {
         this.setState({ selectedOption })
         let { listPayment, listPrice, listProvince } = this.state
+        //console.log('selectedOption.value', selectedOption.value)
         let res = await getDetailInforDoctor(selectedOption.value)
         if (res && res.errcode === 0 && res.data && res.data.Markdown) {
             let markdown = res.data.Markdown
@@ -206,7 +207,7 @@ class ManageDoctor extends Component {
                 note: ''
             })
         }
-        //console.log('hoi dan it channel ', res)
+        console.log('hoi dan it channel ', res)
     };
 
 

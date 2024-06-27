@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { FormattedMessage } from 'react-intl';
+import localization from 'moment/locale/vi'
 import { getProfileDoctorById } from '../../../services/userservive'
 import './ProFileDoctor.scss'
 import { LANGUAGES } from '../../../utils';
 import { NumericFormat } from 'react-number-format';
+import { isEmpty } from 'lodash';
+import moment from 'moment';
 
 class ProFileDoctor extends Component {
 
@@ -45,11 +48,31 @@ class ProFileDoctor extends Component {
 
     }
 
+    renderTimeBooking = (dataTime) => {
+        let { language } = this.props
+        if (dataTime && !isEmpty(dataTime)) {
+            let time = language === LANGUAGES.VI ?
+                dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn
 
+            let data = language === LANGUAGES.VI ?
+                moment.unix(+dataTime.date / 1000).format('dddd - MM/DD/YYYY')
+                :
+                moment.unix(+dataTime.date / 1000).locale('en').format('ddd - MM/DD/YYYY')
+            return (
+                <>
+                    <div>{time} - {data}</div>
+                    <div>Miễn phí đặt lịch</div>
+                </>
+            )
+        } else {
+            return <></>
+        }
+
+    }
 
 
     render() {
-        let { language } = this.props
+        let { language, isShowDescriptionDoctor, dataTime } = this.props
         let { dataProfile } = this.state
         let nameVi = ''
         let nameEn = ''
@@ -57,7 +80,7 @@ class ProFileDoctor extends Component {
             nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.firstName} ${dataProfile.lastName}`
             nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.lastName} ${dataProfile.firstName}`
         }
-        console.log('hoi dan it channel check state:', this.state)
+        console.log('hoi dan it channel check props:', dataTime)
 
         return (
             <div className='profile-doctor-container'>
@@ -71,11 +94,21 @@ class ProFileDoctor extends Component {
                             {language === LANGUAGES.VI ? nameVi : nameEn}
                         </div>
                         <div className='down'>
-                            {dataProfile && dataProfile.Markdown && dataProfile.Markdown.description
-                                && <span>
-                                    {dataProfile.Markdown.description}
-                                </span>
+                            {isShowDescriptionDoctor === true ?
+                                <>
+                                    {dataProfile && dataProfile.Markdown && dataProfile.Markdown.description
+                                        && <span>
+                                            {dataProfile.Markdown.description}
+                                        </span>
+                                    }
+                                </>
+                                :
+                                <>
+                                    {this.renderTimeBooking(dataTime)}
+                                </>
                             }
+
+
                         </div>
                     </div>
                 </div>

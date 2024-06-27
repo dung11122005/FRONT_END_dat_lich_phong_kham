@@ -224,7 +224,7 @@ class UserRedux extends Component {
             password, firstName, lastName, phoneNumber,
             address, gender, position, role
         } = this.state
-        //console.log('hoidan it check state component: ', this.state)
+        console.log('hoidan it check state component: ', this.state)
         return (
             <div className='user-redux-container'>
                 <div className='title'>

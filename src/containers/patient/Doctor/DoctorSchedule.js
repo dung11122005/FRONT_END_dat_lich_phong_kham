@@ -63,7 +63,7 @@ class DoctorSchedule extends Component {
 
             allDays.push(object);
         }
-        //console.log('allDays1:', allDays)
+        console.log('allDays1:', allDays)
         return allDays
     }
 
