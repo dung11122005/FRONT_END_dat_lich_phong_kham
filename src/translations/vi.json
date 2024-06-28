@@ -91,5 +91,17 @@
             "note": "Ghi chú",
             "addressclinic": "Địa chỉ phòng khám"
         }
+    },
+    "booking-modal": {
+        "title": "Thông tin đặt lịch khám bệnh",
+        "fullName": "Họ tên",
+        "phoneNumber": "Số điện thoại",
+        "email": "Địa chỉ email",
+        "address": "Địa chỉ liên hệ",
+        "reason": "Lí do khám",
+        "birthday": "Ngày sinh",
+        "gender": "Giới tính",
+        "confirm": "Xác nhận",
+        "btncancel": "Hủy bỏ"
     }
 }

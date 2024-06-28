@@ -91,5 +91,17 @@
             "note": "Note",
             "addressclinic": "Clinic's address"
         }
+    },
+    "booking-modal": {
+        "title": "Information on scheduling medical examinations",
+        "fullName": "Full name",
+        "phoneNumber": "Phone number",
+        "email": "Email",
+        "address": "Address",
+        "reason": "Reason for examination",
+        "birthday": "Birthday",
+        "gender": "Gender",
+        "confirm": "Confirm",
+        "btncancel": "Cancel"
     }
 }
