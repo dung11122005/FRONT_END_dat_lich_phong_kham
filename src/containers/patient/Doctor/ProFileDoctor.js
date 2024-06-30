@@ -61,13 +61,12 @@ class ProFileDoctor extends Component {
             return (
                 <>
                     <div>{time} - {data}</div>
-                    <div>Miễn phí đặt lịch</div>
+                    <div><FormattedMessage id='patient.booking-modal.priceBooking' /></div>
                 </>
             )
         } else {
             return <></>
         }
-
     }
 
 

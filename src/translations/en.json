@@ -75,6 +75,9 @@
             "payment": "Patients can pay by form: ",
             "hide-price": "Hide price list",
             "detail": "See details"
+        },
+        "booking-modal": {
+            "priceBooking": "Free calendar setup"
         }
     },
     "admin": {
