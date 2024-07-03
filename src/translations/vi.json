@@ -93,7 +93,9 @@
             "payment": "Phương thức thanh toán",
             "nameclinic": "Tên phòng khám",
             "note": "Ghi chú",
-            "addressclinic": "Địa chỉ phòng khám"
+            "addressclinic": "Địa chỉ phòng khám",
+            "specialty": "Chọn chuyên khoa",
+            "clinic": "Chọn phòng khám"
         }
     },
     "booking-modal": {

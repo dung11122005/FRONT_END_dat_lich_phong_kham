@@ -19,7 +19,14 @@ class DoctorExtraInfor extends Component {
     }
 
     async componentDidMount() {
-
+        if (this.props.doctorIdFromParent) {
+            let res = await getExtraInforDoctorById(this.props.doctorIdFromParent)
+            if (res && res.errcode === 0) {
+                this.setState({
+                    extraInfor: res.data
+                })
+            }
+        }
     }
 
 

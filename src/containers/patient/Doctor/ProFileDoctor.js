@@ -8,6 +8,8 @@ import { LANGUAGES } from '../../../utils';
 import { NumericFormat } from 'react-number-format';
 import { isEmpty } from 'lodash';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
+
 
 class ProFileDoctor extends Component {
 
@@ -71,7 +73,8 @@ class ProFileDoctor extends Component {
 
 
     render() {
-        let { language, isShowDescriptionDoctor, dataTime } = this.props
+        let { language, isShowDescriptionDoctor, dataTime,
+            isShowLinkDetail, isShowPrice, doctorId } = this.props
         let { dataProfile } = this.state
         let nameVi = ''
         let nameEn = ''
@@ -79,7 +82,7 @@ class ProFileDoctor extends Component {
             nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.firstName} ${dataProfile.lastName}`
             nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.lastName} ${dataProfile.firstName}`
         }
-        console.log('hoi dan it channel check props:', dataTime)
+        //console.log('hoi dan it channel check props:', dataTime)
 
         return (
             <div className='profile-doctor-container'>
@@ -106,33 +109,39 @@ class ProFileDoctor extends Component {
                                     {this.renderTimeBooking(dataTime)}
                                 </>
                             }
-
-
                         </div>
                     </div>
                 </div>
-                <div className='price'>
-                    Giá khám:
-                    {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
-                        <NumericFormat
-                            className='currency'
-                            value={dataProfile.Doctor_Infor.priceTypedata.valueVi}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            suffix={'VND'}
-                        />
-                    }
+                {isShowLinkDetail === true &&
+                    <div>
+                        <Link to={`/detail-doctor/${doctorId}`}>Xem thêm</Link>
 
-                    {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN &&
-                        <NumericFormat
-                            className='currency'
-                            value={dataProfile.Doctor_Infor.priceTypedata.valueEn}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            suffix={'VND'}
-                        />
-                    }
-                </div>
+                    </div>
+                }
+                {isShowPrice === true &&
+                    <div className='price'>
+                        Giá khám:
+                        {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.VI &&
+                            <NumericFormat
+                                className='currency'
+                                value={dataProfile.Doctor_Infor.priceTypedata.valueVi}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                suffix={'VND'}
+                            />
+                        }
+
+                        {dataProfile && dataProfile.Doctor_Infor && language === LANGUAGES.EN &&
+                            <NumericFormat
+                                className='currency'
+                                value={dataProfile.Doctor_Infor.priceTypedata.valueEn}
+                                displayType={'text'}
+                                thousandSeparator={true}
+                                suffix={'$'}
+                            />
+                        }
+                    </div>
+                }
             </div>
 
         );

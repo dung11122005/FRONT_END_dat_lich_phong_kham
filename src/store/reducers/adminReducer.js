@@ -19,7 +19,7 @@ const adminReducer = (state = initialState, action) => {
         case actionTypes.FETCH_GENDER_START:
             let copyState = { ...state }
             copyState.isLoadingGender = true
-            console.log('hoi dan it fire fetch gender start: ', action)
+            //console.log('hoi dan it fire fetch gender start: ', action)
             return {
                 ...copyState,
 
@@ -28,7 +28,7 @@ const adminReducer = (state = initialState, action) => {
 
             state.genders = action.data
             state.isLoadingGender = false
-            console.log('hoi dan it fire fetch gender sucsess: ', action)
+            //console.log('hoi dan it fire fetch gender sucsess: ', action)
             return {
                 ...state,
 

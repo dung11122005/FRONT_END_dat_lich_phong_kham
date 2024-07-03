@@ -30,7 +30,7 @@ class OutStandingDoctor extends Component {
 
 
     handleViewDetailDoctor = (doctor) => {
-        console.log('hoidan it channel view infor:', doctor)
+        //console.log('hoidan it channel view infor:', doctor)
         //console.log('doctorid', doctor.id)
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`);

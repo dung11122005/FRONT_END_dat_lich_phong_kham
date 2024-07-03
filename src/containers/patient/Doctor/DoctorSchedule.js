@@ -25,6 +25,12 @@ class DoctorSchedule extends Component {
         //console.log('moment vi:', moment(new Date()).format('dddd - DD/MM'))
         //console.log('moment en:', moment(new Date()).locale('en').format('ddd - DD/MM'))
         let allDays = this.getArrdays(language)
+        if (this.props.doctorIdFromParent) {
+            let res = await getScheduleDoctorByDate(this.props.doctorIdFromParent, allDays[0].value)
+            this.setState({
+                allAvalableTime: res.data ? res.data : []
+            })
+        }
         this.setState({
             allDays: allDays,
         })
@@ -63,7 +69,7 @@ class DoctorSchedule extends Component {
 
             allDays.push(object);
         }
-        console.log('allDays1:', allDays)
+        //console.log('allDays1:', allDays)
         return allDays
     }
 

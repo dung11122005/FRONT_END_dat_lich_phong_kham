@@ -93,7 +93,9 @@
             "payment": "Paymentn",
             "nameclinic": "Clinic's name",
             "note": "Note",
-            "addressclinic": "Clinic's address"
+            "addressclinic": "Clinic's address",
+            "specialty": "Choose a specialty",
+            "clinic": "Choose a clinic"
         }
     },
     "booking-modal": {
