@@ -10,7 +10,7 @@ import { getAllDetailSpecialtyById, getAllcodeservice } from '../../../services/
 import { isEmpty } from 'lodash';
 import { LANGUAGES } from '../../../utils';
 import Specialty from '../../HomePage/Section/Specialty';
-
+import Comment from '../SocialPlugin/Comment';
 
 class DetailSpecialty extends Component {
 
@@ -127,6 +127,7 @@ class DetailSpecialty extends Component {
             // nextArrow: <SampleNextArrow />,
             // prevArrow: <SamplePrevArrow />
         };
+        let currentURL = "https://chat-bot-g69l.onrender.com/"
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
@@ -187,6 +188,12 @@ class DetailSpecialty extends Component {
                 <Specialty
                     settings={settings}
                 />
+                <div className='commen-doctor'>
+                    <Comment
+                        datahref={currentURL}
+                        width={"100%"}
+                    />
+                </div>
             </div>
         );
     }

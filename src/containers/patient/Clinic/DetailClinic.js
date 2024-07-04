@@ -10,7 +10,7 @@ import { getAllDetailClinicById, getAllcodeservice } from '../../../services/use
 import { isEmpty } from 'lodash';
 import { LANGUAGES } from '../../../utils';
 import Specialty from '../../HomePage/Section/Specialty';
-
+import Comment from '../SocialPlugin/Comment';
 
 class DetailClinic extends Component {
 
@@ -64,6 +64,16 @@ class DetailClinic extends Component {
     render() {
         let { arrDoctorId, dataDetailClinic } = this.state
         let { language } = this.props
+        let settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            // nextArrow: <SampleNextArrow />,
+            // prevArrow: <SamplePrevArrow />
+        };
+        let currentURL = "https://chat-bot-g69l.onrender.com/"
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
@@ -110,7 +120,15 @@ class DetailClinic extends Component {
                     </div>
 
                 </div>
-                {/* <Specialty /> */}
+                <Specialty
+                    settings={settings}
+                />
+                <div className='commen-doctor'>
+                    <Comment
+                        datahref={currentURL}
+                        width={"100%"}
+                    />
+                </div>
             </div>
         );
     }

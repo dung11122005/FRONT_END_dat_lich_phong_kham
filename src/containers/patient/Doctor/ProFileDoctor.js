@@ -9,7 +9,8 @@ import { NumericFormat } from 'react-number-format';
 import { isEmpty } from 'lodash';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-
+import LikeAndShare from '../SocialPlugin/LikeAndShare';
+import Comment from '../SocialPlugin/Comment';
 
 class ProFileDoctor extends Component {
 
@@ -82,6 +83,7 @@ class ProFileDoctor extends Component {
             nameVi = `${dataProfile.positionData.valueVi}, ${dataProfile.firstName} ${dataProfile.lastName}`
             nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.lastName} ${dataProfile.firstName}`
         }
+        let currentURL = "https://chat-bot-g69l.onrender.com/"
         //console.log('hoi dan it channel check props:', dataTime)
 
         return (
@@ -103,6 +105,11 @@ class ProFileDoctor extends Component {
                                             {dataProfile.Markdown.description}
                                         </span>
                                     }
+                                    <div className='like-share-plugin'>
+                                        <LikeAndShare
+                                            datahref={currentURL}
+                                        />
+                                    </div>
                                 </>
                                 :
                                 <>

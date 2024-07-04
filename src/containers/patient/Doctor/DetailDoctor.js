@@ -8,6 +8,8 @@ import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor'
 import LikeAndShare from '../SocialPlugin/LikeAndShare';
 import Comment from '../SocialPlugin/Comment';
+require('dotenv').config()
+
 
 class DetailDoctor extends Component {
 
@@ -53,10 +55,12 @@ class DetailDoctor extends Component {
             nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`
         }
 
-        let currentURL = +process.env.REACT_APP_IS_LOCALHOST === 1 ?
-            "https://chat-bot-g69l.onrender.com" : window.location.href
-
+        // let currentURL = process.env.REACT_APP_IS_LOCALHOST === 1 ?
+        //     "https://chat-bot-g69l.onrender.com/" : window.location.href
+        // console.log('process.env.REACT_APP_IS_LOCALHOST', process.env.REACT_APP_IS_LOCALHOST)
+        let currentURL = "https://chat-bot-g69l.onrender.com/"
         return (
+
             <>
                 <HomeHeader isShowBanner={false} />
                 <div className='docter-detail-container'>

@@ -26,7 +26,7 @@ class LikeAndShare extends Component {
                 cookie: true,  // enable cookies to allow the server to access
                 // the session
                 xfbml: true,  // parse social plugins on this page
-                version: 'v2.5' // use version 2.1
+                version: 'v19.0' // use version 2.1
             });
         };
         // Load the SDK asynchronously
@@ -55,6 +55,7 @@ class LikeAndShare extends Component {
 
     render() {
         let { datahref } = this.props
+        console.log('this.props.likeandshare', this.props)
         return (
             <>
                 <div class="fb-like"
