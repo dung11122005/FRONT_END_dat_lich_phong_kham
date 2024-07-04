@@ -7,6 +7,7 @@
         display: flex;
         //border: 1px solid orange;
         .content-left{
+            width: 20%;
             //border: 1px solid greenyellow;
             background-size: cover;
             background-repeat: no-repeat;
@@ -28,7 +29,11 @@
                 font-weight: 600;
             }
             .down{
+                font-size: 17px;
                 padding-top: 10px;
+                .like-share-plugin{
+                    margin: 10px 0 20px 0;
+                }
             }
         }
     }
@@ -52,7 +57,7 @@
         padding: 20px 100px;
         border-top: 1px solid #CCCCCC;
         border-bottom: 1px solid #CCCCCC;
-        h5{
+        h1,h2,h3,h4,h5{
             font-size: 17px;
         }
         img{

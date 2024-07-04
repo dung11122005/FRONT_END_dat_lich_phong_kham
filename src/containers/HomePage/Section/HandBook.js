@@ -25,43 +25,43 @@ class HandBook extends Component {
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 1</div>
+                                <div className='position text-center'>Cẩm nang 1</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 2</div>
+                                <div className='position text-center'>Cẩm nang 2</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 3</div>
+                                <div className='position text-center'>Cẩm nang 3</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 4</div>
+                                <div className='position text-center'>Cẩm nang 4</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 5</div>
+                                <div className='position text-center'>Cẩm nang 5</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 6</div>
+                                <div className='position text-center'>Cẩm nang 6</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='outter-bg'>
                                     <div className='bg-image section-handbook'></div>
                                 </div>
-                                <div className='position text-center'>khoa xương khớp 7</div>
+                                <div className='position text-center'>Cẩm nang 7</div>
                             </div>
                         </Slider>
                     </div>

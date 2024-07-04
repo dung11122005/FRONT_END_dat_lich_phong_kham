@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
 import { getAllSpecialty } from '../../../services/userservive'
 import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 // Import css files
 
 
@@ -37,15 +38,17 @@ class Specialty extends Component {
     handleViewDetailSpecialty = (item) => {
         //console.log('hoidan it channel view infor:', item)
         //console.log('doctorid', doctor.id)
+        //alert('ok')
         if (this.props.history) {
             this.props.history.push(`/detail-specialty/${item.id}`);
+            window.location.reload();
         }
 
     }
     render() {
         let { dataSpecialty } = this.state
-        return (
 
+        return (
             <div className='section-share section-specialty'>
                 <div className='section-container'>
                     <div className='section-header'>
@@ -66,7 +69,10 @@ class Specialty extends Component {
                                                     style={{ backgroundImage: `url(${item.image})` }}
                                                 ></div>
                                             </div>
-                                            <div className='position text-center specialty-name'>{item.name}</div>
+                                            <div className='position text-center specialty-name'>
+
+                                                {item.name}
+                                            </div>
                                         </div>
                                     )
                                 })

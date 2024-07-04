@@ -115,7 +115,6 @@ class ProFileDoctor extends Component {
                 {isShowLinkDetail === true &&
                     <div>
                         <Link to={`/detail-doctor/${doctorId}`}>Xem thêm</Link>
-
                     </div>
                 }
                 {isShowPrice === true &&

@@ -6,6 +6,8 @@ import { getDetailInforDoctor } from '../../../services/userservive'
 import { LANGUAGES } from '../../../utils'
 import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor'
+import LikeAndShare from '../SocialPlugin/LikeAndShare';
+import Comment from '../SocialPlugin/Comment';
 
 class DetailDoctor extends Component {
 
@@ -51,6 +53,9 @@ class DetailDoctor extends Component {
             nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`
         }
 
+        let currentURL = +process.env.REACT_APP_IS_LOCALHOST === 1 ?
+            "https://chat-bot-g69l.onrender.com" : window.location.href
+
         return (
             <>
                 <HomeHeader isShowBanner={false} />
@@ -70,6 +75,11 @@ class DetailDoctor extends Component {
                                         {detailDoctor.Markdown.description}
                                     </span>
                                 }
+                                <div className='like-share-plugin'>
+                                    <LikeAndShare
+                                        datahref={currentURL}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -93,7 +103,10 @@ class DetailDoctor extends Component {
                         }
                     </div>
                     <div className='commen-doctor'>
-
+                        <Comment
+                            datahref={currentURL}
+                            width={"100%"}
+                        />
                     </div>
                 </div>
             </>

@@ -112,12 +112,21 @@ class DetailSpecialty extends Component {
                 })
             }
         }
-        console.log('hoi dan it check onchange event:', event.target.value)
+        //console.log('hoi dan it check onchange event:', event.target.value)
     }
 
     render() {
         let { arrDoctorId, dataDitailSpecialty, listProvince } = this.state
         let { language } = this.props
+        let settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            // nextArrow: <SampleNextArrow />,
+            // prevArrow: <SamplePrevArrow />
+        };
         return (
             <div className='detail-specialty-container'>
                 <HomeHeader />
@@ -175,7 +184,9 @@ class DetailSpecialty extends Component {
                     </div>
 
                 </div>
-                {/* <Specialty /> */}
+                <Specialty
+                    settings={settings}
+                />
             </div>
         );
     }
@@ -184,7 +195,6 @@ class DetailSpecialty extends Component {
 const mapStateToProps = state => {
     return {
         language: state.app.language,
-
     };
 };
 

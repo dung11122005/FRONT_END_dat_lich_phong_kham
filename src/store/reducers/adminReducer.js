@@ -22,7 +22,6 @@ const adminReducer = (state = initialState, action) => {
             //console.log('hoi dan it fire fetch gender start: ', action)
             return {
                 ...copyState,
-
             }
         case actionTypes.FETCH_GENDER_SUCSESS:
 
