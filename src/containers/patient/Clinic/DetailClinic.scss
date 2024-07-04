@@ -1,9 +1,13 @@
 .detail-specialty-container{
     .description-specialty{
-        //border: 1px solid red;
-        .description-specialty-html{
-            font-size: 18px;
+        .name-clinic{
+            font-size: 20px;
+            font-weight: 600;
+            color: #337AB7;
+            margin-bottom: 10px;
         }
+        
+        //border: 1px solid red;
         padding: 10px;
         margin: 15px 0;
         h1,h2,h3,h4,h5,h6{

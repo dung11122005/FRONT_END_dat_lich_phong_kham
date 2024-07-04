@@ -101,12 +101,27 @@ const getAllSpecialty = () => {
 }
 
 
+const getAllClinic = () => {
+    //console.log('check data', data)
+    return axios.get('/api/get-clinic')
+}
+
+
 const getAllDetailSpecialtyById = (data) => {
     //console.log('check data', data)
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`)
 }
 
 
+const createNewClinic = (data) => {
+    //console.log('check data', data)
+    return axios.post('/api/create-new-clinic', data)
+}
+
+const getAllDetailClinicById = (data) => {
+    //console.log('check data', data)
+    return axios.get(`/api/get-detail-clinic-by-id?id=${data.id}`)
+}
 export {
     handleloginapi, getAllusers,
     createnewUserService, deleteUserService,
@@ -116,5 +131,6 @@ export {
     savebulkScheduleDoctor, getScheduleDoctorByDate,
     getExtraInforDoctorById, getProfileDoctorById,
     postPatientBookAppointment, postVerifyBookAppointment,
-    createNewSpacialty, getAllSpecialty, getAllDetailSpecialtyById
+    createNewSpacialty, getAllSpecialty, getAllDetailSpecialtyById,
+    createNewClinic, getAllClinic, getAllDetailClinicById
 }

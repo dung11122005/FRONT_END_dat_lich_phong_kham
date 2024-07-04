@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import { getAllSpecialty } from '../../../services/userservive'
 import { withRouter } from 'react-router';
 // Import css files
-import Specialtyimg from '../../../assets/specialty/khoaxuongkhop.jpg'
+
 
 
 class Specialty extends Component {
