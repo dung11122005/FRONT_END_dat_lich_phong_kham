@@ -58,7 +58,7 @@ class Comment extends Component {
         console.log('this.props.comment', this.props)
         return (
             <>
-                <div class="fb-comments"
+                <div className="fb-comments"
                     data-href={datahref}
                     data-width={width ? width : ""}
                     data-numposts={numPost ? numPost : 5}>

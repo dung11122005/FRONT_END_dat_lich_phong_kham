@@ -30,6 +30,7 @@ class MedicalFacility extends Component {
         //console.log('doctorid', doctor.id)
         if (this.props.history) {
             this.props.history.push(`/detail-clinic/${clinic.id}`);
+            window.location.reload();
         }
     }
 

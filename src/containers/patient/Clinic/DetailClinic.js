@@ -9,7 +9,7 @@ import ProFileDoctor from '../Doctor/ProFileDoctor';
 import { getAllDetailClinicById, getAllcodeservice } from '../../../services/userservive'
 import { isEmpty } from 'lodash';
 import { LANGUAGES } from '../../../utils';
-import Specialty from '../../HomePage/Section/Specialty';
+import MedicalFacility from '../../HomePage/Section/MedicalFacility';
 import Comment from '../SocialPlugin/Comment';
 
 class DetailClinic extends Component {
@@ -120,7 +120,7 @@ class DetailClinic extends Component {
                     </div>
 
                 </div>
-                <Specialty
+                <MedicalFacility
                     settings={settings}
                 />
                 <div className='commen-doctor'>

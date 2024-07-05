@@ -8,6 +8,7 @@ import DoctorSchedule from './DoctorSchedule';
 import DoctorExtraInfor from './DoctorExtraInfor'
 import LikeAndShare from '../SocialPlugin/LikeAndShare';
 import Comment from '../SocialPlugin/Comment';
+import OutStandingDoctor from '../../HomePage/Section/OutStandingDoctor'
 require('dotenv').config()
 
 
@@ -54,6 +55,15 @@ class DetailDoctor extends Component {
             nameVi = `${detailDoctor.positionData.valueVi}, ${detailDoctor.firstName} ${detailDoctor.lastName}`
             nameEn = `${detailDoctor.positionData.valueEn}, ${detailDoctor.lastName} ${detailDoctor.firstName}`
         }
+        let settings = {
+            dots: false,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            // nextArrow: <SampleNextArrow />,
+            // prevArrow: <SamplePrevArrow />
+        };
 
         // let currentURL = process.env.REACT_APP_IS_LOCALHOST === 1 ?
         //     "https://chat-bot-g69l.onrender.com/" : window.location.href
@@ -106,6 +116,9 @@ class DetailDoctor extends Component {
                             </div>
                         }
                     </div>
+                    <OutStandingDoctor
+                        settings={settings}
+                    />
                     <div className='commen-doctor'>
                         <Comment
                             datahref={currentURL}

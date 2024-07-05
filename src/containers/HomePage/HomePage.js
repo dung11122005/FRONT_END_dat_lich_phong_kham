@@ -24,7 +24,7 @@ class HomePage extends Component {
             // prevArrow: <SamplePrevArrow />
         };
         return (
-            <div>
+            <>
                 <HomeHeader isShowBanner={true} />
                 <Specialty
                     settings={settings}
@@ -40,7 +40,7 @@ class HomePage extends Component {
                 />
                 <About />
                 <HomeFooter />
-            </div>
+            </>
 
         );
     }

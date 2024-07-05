@@ -53,15 +53,16 @@
     }
 
     .detail-infor-doctor{
+        font-size: 17px;
         background-color: #F9F9F9;
         padding: 20px 100px;
         border-top: 1px solid #CCCCCC;
         border-bottom: 1px solid #CCCCCC;
-        h1,h2,h3,h4,h5{
-            font-size: 17px;
-        }
+        // h1,h2,h3,h4,h5{
+        //     font-size: 17px;
+        // }
         img{
-            width: 100%;
+            width: 60%;
         }
     }
 

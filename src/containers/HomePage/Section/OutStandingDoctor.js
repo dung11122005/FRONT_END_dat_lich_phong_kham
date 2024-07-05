@@ -34,6 +34,7 @@ class OutStandingDoctor extends Component {
         //console.log('doctorid', doctor.id)
         if (this.props.history) {
             this.props.history.push(`/detail-doctor/${doctor.id}`);
+            window.location.reload();
         }
 
     }

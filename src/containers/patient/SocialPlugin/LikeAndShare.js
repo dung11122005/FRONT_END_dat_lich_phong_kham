@@ -58,7 +58,7 @@ class LikeAndShare extends Component {
         console.log('this.props.likeandshare', this.props)
         return (
             <>
-                <div class="fb-like"
+                <div className="fb-like"
                     data-href={datahref}
                     data-width=""
                     data-layout="standard"

@@ -26,7 +26,7 @@
         }
         .styled-table th,
         .styled-table td {
-            padding: 12px 15px;
+            padding: 10px 15px;
         }
         .styled-table tbody tr {
             border-bottom: 1px solid #dddddd;
@@ -35,11 +35,28 @@
             background-color: #f3f3f3;
         }
         .styled-table tbody tr:last-of-type {
-            border-bottom: 2px solid #009879;
+            border-bottom: 1px solid #009879;
         }
         .styled-table tbody tr.active-row {
             font-weight: bold;
             color: #009879;
         }
+        button{
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mp-btn-confirm{
+            margin-right: 10px ;
+            padding: 7px 15px;
+            border-radius: 5px;
+            background-color: #F36C89
+        }
+    }
+}
+.div._loading_overlay_wrapper {
+    position: unset;
+    ._loading_overlay_overlay {
+    z-index: 1000000;
     }
 }
