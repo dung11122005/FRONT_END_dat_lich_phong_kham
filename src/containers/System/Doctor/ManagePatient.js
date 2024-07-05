@@ -108,7 +108,9 @@ class ManagePatient extends Component {
             doctorId: dataModal.doctorId,
             patientId: dataModal.patientId,
             timetype: dataModal.timeType,
-            language: this.props.language
+            language: this.props.language,
+            patientidName: dataModal.patientidName
+
         })
         if (res && res.errcode === 0) {
             toast.success('send remedy success!')
